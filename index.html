@@ -430,37 +430,49 @@
         <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 40px;">&copy; 2025 Milton Red Hawks Booster Club. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        // Animate PROTECT THE NEST letter by letter
-        const title = document.getElementById('animated-title');
-        const text = 'PROTECT THE NEST';
-        let letterIndex = 0;
-        text.split('').forEach((char, i) => {
-            if (char === ' ') {
-                const space = document.createElement('span');
-                space.classList.add('space');
-                title.appendChild(space);
-            } else {
-                const span = document.createElement('span');
-                span.classList.add('letter');
-                span.textContent = char;
-                span.style.animationDelay = '0s';
-                title.appendChild(span);
-            }
-            if (char !== ' ') letterIndex++;
+<script>
+    // Animate PROTECT THE NEST - Grouped by words to prevent splitting on mobile
+    const title = document.getElementById('animated-title');
+    const text = 'PROTECT THE NEST';
+    
+    // Split the text into words first
+    const words = text.split(' ');
+
+    words.forEach((word, wordIndex) => {
+        // Create a span to hold the word (prevents splitting mid-word)
+        const wordSpan = document.createElement('span');
+        wordSpan.style.whiteSpace = 'nowrap'; // Keeps letters of the word together
+        wordSpan.style.display = 'inline-block';
+
+        // Split the word into letters
+        word.split('').forEach((char) => {
+            const letterSpan = document.createElement('span');
+            letterSpan.classList.add('letter');
+            letterSpan.textContent = char;
+            wordSpan.appendChild(letterSpan);
         });
 
-        function toggleSection(id) {
-            var section = document.getElementById(id);
-            if (section.style.display === "none" || section.style.display === "") {
-                section.style.display = "block";
-                section.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                section.style.display = "none";
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-    </script>
+        title.appendChild(wordSpan);
 
+        // Add a space after the word (unless it's the last word)
+        if (wordIndex < words.length - 1) {
+            const space = document.createElement('span');
+            space.classList.add('space');
+            title.appendChild(space);
+        }
+    });
+
+    function toggleSection(id) {
+        var section = document.getElementById(id);
+        if (section.style.display === "none" || section.style.display === "") {
+            section.style.display = "block";
+            section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            section.style.display = "none";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+</script>
+    
 </body>
 </html>
