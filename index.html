@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milton Red Hawks Boys Hockey | Official Booster Club</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #CE1126;
+            --black: #0e0e0e;
+            --white: #ffffff;
+            --ice-gray: #f4f7f6;
+            --dark-gray: #111111;
+            --gold: #D4AF37;
+            --venmo-blue: #3d95ce;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        /* Top Navigation */
+        nav {
+            background: var(--black);
+            color: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--red);
+        }
+
+        .logo-nav { height: 85px; width: auto; }
+
+        nav ul { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover { color: var(--red); }
+
+        /* Ticker */
+        .ticker {
+            background: var(--red);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1580748141549-71748ddf0bdc?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 5rem; margin: 0; text-transform: uppercase; line-height: 0.9; }
+        .hero p { font-size: 1.8rem; color: var(--red); font-weight: bold; margin-bottom: 30px; letter-spacing: 4px; }
+
+        .btn {
+            background: var(--red);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 1rem;
+        }
+        .btn:hover { background: white; color: var(--black); transform: translateY(-3px); }
+
+        /* Titles */
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+        .section-title span { color: var(--red); }
+        .sub-heading {
+            text-align: center;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            margin: 40px 0 20px 0;
+            color: var(--black);
+            border-bottom: 4px solid var(--red);
+            display: inline-block;
+            width: auto;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+        }
+
+        /* Hidden Sections (Schedule & Roster) */
+        #schedule, #roster {
+            display: none;
+            padding: 80px 5%;
+            background: #fff;
+            border-top: 5px solid var(--red);
+            border-bottom: 5px solid var(--red);
+        }
+
+        .data-container { max-width: 1000px; margin: 0 auto; overflow-x: auto; }
+        .data-table { width: 100%; border-collapse: collapse; font-family: 'Roboto Condensed', sans-serif; text-align: left; margin-bottom: 40px; }
+        .data-table thead tr { background: var(--black); color: white; }
+        .data-table th, .data-table td { padding: 15px; border-bottom: 1px solid #eee; }
+        .data-table tbody tr:nth-child(even) { background: #f9f9f9; }
+        .close-btn { margin-top: 30px; background: #333; color: white; padding: 10px 20px; font-size: 0.8rem; cursor: pointer; border: none; text-transform: uppercase; display: block; margin-left: auto; margin-right: auto; }
+
+        /* MISSION SECTION - Updated to 2x2 */
+        .mission { padding: 80px 5%; max-width: 1000px; margin: 0 auto; }
+        .mission-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
+            gap: 60px 40px; /* Space between rows and columns */
+        }
+        .mission-item { text-align: center; }
+        .mission-item i { font-size: 3.5rem; color: var(--red); margin-bottom: 20px; }
+        .mission-item h3 { font-size: 1.6rem; text-transform: uppercase; border-bottom: 3px solid var(--red); display: inline-block; padding-bottom: 5px; margin-bottom: 15px; }
+        .mission-item p { font-family: 'Roboto Condensed', sans-serif; color: #444; font-weight: bold; font-size: 1.1rem; }
+
+        /* Membership / Sponsorship Tiers */
+        .membership { background: var(--ice-gray); padding: 80px 5%; }
+        .sponsor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; max-width: 1300px; margin: 0 auto; }
+        .sponsor-card { background: white; border: 1px solid #ddd; padding: 40px 25px; text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        .sponsor-card:hover { transform: translateY(-10px); border-color: var(--red); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .sponsor-card.featured { border-top: 8px solid var(--gold); }
+        .sponsor-card h3 { font-size: 2rem; margin: 0; color: var(--black); }
+        .price-tag { font-size: 3rem; font-weight: bold; color: var(--red); margin: 15px 0; }
+        
+        /* Payment Methods */
+        .payment-methods { max-width: 1100px; margin: 60px auto 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px; background: white; border: 2px dashed #ccc; }
+        .payment-box h3 { text-transform: uppercase; margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
+        .venmo-style { color: var(--venmo-blue); }
+        .payment-box p { font-family: 'Roboto Condensed', sans-serif; font-size: 1.1rem; }
+        .check-details { background: #f9f9f9; padding: 20px; border-left: 5px solid var(--red); margin-top: 15px; font-family: 'Roboto Condensed', sans-serif; }
+
+        /* GAMEDAY HUB */
+        .gameday-hub { background: var(--dark-gray); color: white; padding: 80px 5%; text-align: center; }
+        .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .hub-item i { font-size: 3rem; color: var(--red); margin-bottom: 20px; }
+        .hub-item h3 { text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .hub-item p { color: #ccc; font-family: 'Roboto Condensed', sans-serif; font-size: 1.1rem; line-height: 1.6; }
+        .hub-link { color: var(--red); text-decoration: none; font-weight: bold; }
+
+        /* Footer */
+        footer { background: #000; color: #666; text-align: center; padding: 60px 20px; border-top: 5px solid var(--red); }
+        .footer-social-links a { color: white; font-size: 2rem; margin: 0 15px; text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .mission-grid { grid-template-columns: 1fr; } /* Stack on mobile */
+            .payment-methods { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <img src="logo.png" alt="Milton Red Hawks" class="logo-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a onclick="toggleSection('schedule')">Schedule</a></li>
+            <li><a onclick="toggleSection('roster')">Roster</a></li>
+            <li><a href="#membership">Membership</a></li>
+        </ul>
+    </nav>
+
+    <div class="ticker">
+        Next Game: Milton vs. Janesville — Tuesday @ 7:00 PM — Woodman's Center
+    </div>
+
+    <section class="hero">
+        <h1>PROTECT THE NEST</h1>
+        <p>Milton Red Hawks Boys Hockey</p>
+        <a href="#membership" class="btn">Support The Hawks</a>
+    </section>
+
+    <!-- HIDDEN SCHEDULE SECTION -->
+    <section id="schedule">
+        <h2 class="section-title">2024-25 <span>Schedule</span></h2>
+        <div class="data-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Opponent</th>
+                        <th>Location</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Jan 21</td><td style="font-weight:bold;">Janesville Bluebirds</td><td>Woodman's Center (Home)</td><td>7:00 PM</td></tr>
+                </tbody>
+            </table>
+            <button class="close-btn" onclick="toggleSection('schedule')">× Close Schedule</button>
+        </div>
+    </section>
+
+    <!-- HIDDEN ROSTER SECTION -->
+    <section id="roster">
+        <h2 class="section-title">2024-25 <span>Team Rosters</span></h2>
+        
+        <div class="data-container">
+            <!-- VARSITY -->
+            <h3 class="sub-heading">Varsity</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Year</th>
+                        <th>School</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td style="font-weight:bold;">Henrik Schaapveld</td><td>Goalie</td><td>Junior</td><td>MIL</td></tr>
+                    <tr><td>2</td><td style="font-weight:bold;">Camden Roller</td><td>Forward</td><td>Junior</td><td>EDG</td>/tr>
+                    <tr><td>5</td><td style="font-weight:bold;">Cayden Witte</td><td>Forward</td><td>Junior</td><td>FA</td></tr>
+                    <tr><td>6</td><td style="font-weight:bold;">Levi Heggernes</td><td>Defense</td><td>Junior</td><td>ELK</td></tr>
+                    <tr><td>9</td><td style="font-weight:bold;">Tage Jensen</td><td>Defense</td><td>Junior</td><td>ELK</td></tr>
+                    <tr><td>12</td><td style="font-weight:bold;">Lukas Valasek</td><td>Forward</td><td>Sophomore</td><td>WB</td></tr>                    
+                    <tr><td>13</td><td style="font-weight:bold;">Everet Thompson</td><td>Forward</td><td>Junior</td><td>FA</td></tr>
+                    <tr><td>14</td><td style="font-weight:bold;">Griffin Benson</td><td>Defense</td><td>Junior</td><td>MIL</td></tr>
+                    <tr><td>16</td><td style="font-weight:bold;">Colin Munro</td><td>Forward</td><td>Senior</td><td>EDG</td></tr>
+                    <tr><td>17</td><td style="font-weight:bold;">Mason Anundson</td><td>Forward</td><td>Junior</td><td>MIL</td></tr>   
+                    <tr><td>18</td><td style="font-weight:bold;">Owen Kennedy</td><td>Forward</td><td>Junior</td><td>MIL</td></tr>
+                    <tr><td>21</td><td style="font-weight:bold;">Declan Thiry</td><td>Forward</td><td>Junior</td><td>EDG</td></tr>
+                    <tr><td>22</td><td style="font-weight:bold;">Evan Chady</td><td>Forward</td><td>Sophomore</td><td>MIL</td></tr>
+                    <tr><td>26</td><td style="font-weight:bold;">Isaac Busch</td><td>Forward/Defense</td><td>Senior</td><td>MIL</td></tr>
+                    <tr><td>32</td><td style="font-weight:bold;">Porter Maliszewski</td><td>Goalie</td><td>Senior</td><td>MIL</td></tr>
+                </tbody>
+            </table>
+
+            <!-- JV -->
+            <h3 class="sub-heading">Junior Varsity</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>--</td><td style="font-weight:bold;">TBD</td><td>TBD</td><td>Freshman</td></tr>
+                </tbody>
+            </table>
+
+            <button class="close-btn" onclick="toggleSection('roster')">× Close Roster</button>
+        </div>
+    </section>
+
+    <!-- INVESTING IN FUTURE (2x2 Grid) -->
+    <section class="mission">
+        <h2 class="section-title">Investing In <span>Our Future</span></h2>
+        <div class="mission-grid">
+            <div class="mission-item">
+                <i class="fas fa-skating"></i>
+                <h3>Facility</h3>
+                <p>Paying for ice time and a locker room to ensure our players have a professional environment to grow.</p>
+            </div>
+            <div class="mission-item">
+                <i class="fas fa-utensils"></i>
+                <h3>Team Meals</h3>
+                <p>Providing team meals for away games to keep our athletes fueled and ready to play.</p>
+            </div>
+            <div class="mission-item">
+                <i class="fas fa-tools"></i>
+                <h3>Equipment</h3>
+                <p>Purchasing jerseys, practice gear, and technology to enhance our competitive edge.</p>
+            </div>
+            <div class="mission-item">
+                <i class="fas fa-users"></i>
+                <h3>Community</h3>
+                <p>Building a legacy and engaging the community to support Milton Hockey excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPONSORSHIP LEVELS -->
+    <section class="membership" id="membership">
+        <h2 class="section-title">2024-25 <span>Support Tiers</span></h2>
+        <div class="sponsor-grid">
+            <div class="sponsor-card featured"><h3>HALL OF FAME</h3><div class="price-tag">$5,000</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+            <div class="sponsor-card" style="border-top: 8px solid var(--red);"><h3>PLAYMAKER</h3><div class="price-tag">$2,500</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+            <div class="sponsor-card" style="border-top: 8px solid var(--black);"><h3>POWER PLAY</h3><div class="price-tag">$1,000</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+            <div class="sponsor-card"><h3>SHUT OUT</h3><div class="price-tag">$500</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+            <div class="sponsor-card"><h3>HAT TRICK</h3><div class="price-tag">$300</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+            <div class="sponsor-card"><h3>GRINDER</h3><div class="price-tag">$100</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+        </div>
+
+        <div class="payment-methods">
+            <div class="payment-box">
+                <h3 class="venmo-style"><i class="fab fa-vimeo-v"></i> Venmo</h3>
+                <p>Support us @miltonhockey via Venmo. Please include your name and tier in the payment note.</p>
+            </div>
+            <div class="payment-box">
+                <h3><i class="fas fa-envelope-open-text"></i> Pay By Check</h3>
+                <p>Payable to: <strong>Milton Hockey Booster Club</strong></p>
+                <div class="check-details">
+                    Milton Booster Club<br>
+                    1947 Pine Ridge Dr.<br>
+                    Janesville, WI 53545
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAMEDAY HUB -->
+    <section class="gameday-hub">
+        <h2 class="section-title" style="color:white;">Gameday <span>Hub</span></h2>
+        <div class="hub-grid">
+            <div class="hub-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Home Ice</h3>
+                <p>
+                    <strong>Woodman's Sports & Convention Center</strong><br>
+                    2510 Milton Ave, Janesville, WI 53545
+                </p>
+            </div>
+            <div class="hub-item">
+                <i class="fas fa-microphone"></i>
+                <h3>Listen Live</h3>
+                <p>
+                    <strong>WCLO Radio</strong><br>
+                    1230 AM | 92.7 FM | <a href="https://wclo.com" target="_blank" class="hub-link">WCLO.COM</a>
+                </p>
+            </div>
+            <div class="hub-item">
+                <i class="fas fa-video"></i>
+                <h3>Video Stream</h3>
+                <p>
+                    <strong>LiveBarn</strong><br>
+                    Official Home Stream<br>Search: <em>Woodman's Center</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <img src="logo.png" alt="Milton" style="height: 80px; opacity: 0.6; margin-bottom: 25px;"><br>
+        <strong style="color: white; font-size: 1.2rem;">MILTON RED HAWKS BOYS HOCKEY</strong><br>
+        <div class="footer-social-links" style="margin-top:20px;">
+            <a href="https://facebook.com/MiltonHSHockey" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/miltonredhawksboyshockey/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 40px;">&copy; 2025 Milton Red Hawks Booster Club. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            if (section.style.display === "none" || section.style.display === "") {
+                section.style.display = "block";
+                section.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                section.style.display = "none";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+</html>
