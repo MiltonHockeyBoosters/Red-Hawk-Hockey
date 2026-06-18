@@ -184,6 +184,11 @@
         .sponsor-card h3 { font-size: 2rem; margin: 0; color: var(--black); }
         .price-tag { font-size: 3rem; font-weight: bold; color: var(--red); margin: 15px 0; }
         
+        /* Styled benefits list for cards */
+        .benefits-list { list-style: none; padding: 0; text-align: left; font-family: 'Roboto Condensed', sans-serif; font-size: 0.95rem; margin: 20px 0; border-top: 1px solid #eee; padding-top: 15px; }
+        .benefits-list li { margin-bottom: 8px; line-height: 1.2; }
+        .benefits-list i { color: var(--red); margin-right: 8px; }
+
         /* Payment Methods */
         .payment-methods { max-width: 1100px; margin: 60px auto 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px; background: white; border: 2px dashed #ccc; }
         .payment-box h3 { text-transform: uppercase; margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
@@ -220,7 +225,7 @@
             <li><a href="#">Home</a></li>
             <li><a onclick="toggleSection('schedule')">Schedule</a></li>
             <li><a onclick="toggleSection('roster')">Roster</a></li>
-            <li><a href="#membership">Membership</a></li>
+            <li><a href="#membership">Sponsorship</a></li>
         </ul>
     </nav>
 
@@ -364,12 +369,87 @@
     <section class="membership" id="membership">
         <h2 class="section-title">2026-27 <span>Support Tiers</span></h2>
         <div class="sponsor-grid">
-            <div class="sponsor-card featured"><h3>HALL OF FAME</h3><div class="price-tag">$5,000</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
-            <div class="sponsor-card" style="border-top: 8px solid var(--red);"><h3>PLAYMAKER</h3><div class="price-tag">$2,500</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
-            <div class="sponsor-card" style="border-top: 8px solid var(--black);"><h3>POWER PLAY</h3><div class="price-tag">$1,000</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
-            <div class="sponsor-card"><h3>SHUT OUT</h3><div class="price-tag">$500</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
-            <div class="sponsor-card"><h3>HAT TRICK</h3><div class="price-tag">$300</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
-            <div class="sponsor-card"><h3>GRINDER</h3><div class="price-tag">$100</div><a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a></div>
+            <!-- HALL OF FAME -->
+            <div class="sponsor-card featured">
+                <h3>HALL OF FAME</h3>
+                <div class="price-tag">$5,000</div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> 3x5' Individualized banner hung on the glass behind south-side goalie net</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on sponsor banner</li>
+                    <li><i class="fas fa-check-circle"></i> 3"x3" logo/ad in game programs</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on booster club's website</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition at game intermission</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition on social media</li>
+                </ul>
+                <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
+            </div>
+            
+            <!-- PLAYMAKER -->
+            <div class="sponsor-card" style="border-top: 8px solid var(--red);">
+                <h3>PLAYMAKER</h3>
+                <div class="price-tag">$2,500</div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Announcing Milton Redhawks Penalty Kills as "[Business Name] Penalty Kill"</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on sponsor banner</li>
+                    <li><i class="fas fa-check-circle"></i> 3"x3" logo/ad in game program</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on booster club's website</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition at game intermission</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition on social media</li>
+                </ul>
+                <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
+            </div>
+
+            <!-- POWER PLAY -->
+            <div class="sponsor-card" style="border-top: 8px solid var(--black);">
+                <h3>POWER PLAY</h3>
+                <div class="price-tag">$1,000</div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Announcing Milton Redhawk's Power Plays as a "[Business Name] Power Play"</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on sponsor banner</li>
+                    <li><i class="fas fa-check-circle"></i> 3"x3" logo/ad in game programs</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on booster club's website</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition at game intermission</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition on social media</li>
+                </ul>
+                <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
+            </div>
+
+            <!-- SHUT OUT -->
+            <div class="sponsor-card">
+                <h3>SHUT OUT</h3>
+                <div class="price-tag">$500</div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Logo on sponsor banner</li>
+                    <li><i class="fas fa-check-circle"></i> 2"x 2" logo/ad in game programs</li>
+                    <li><i class="fas fa-check-circle"></i> Logo on booster club's website</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition at game intermission</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition on social media</li>
+                </ul>
+                <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
+            </div>
+
+            <!-- HAT TRICK -->
+            <div class="sponsor-card">
+                <h3>HAT TRICK</h3>
+                <div class="price-tag">$300</div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Logo on sponsor banner</li>
+                    <li><i class="fas fa-check-circle"></i> 1"x 3" logo/ad in game program</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition at game intermission</li>
+                </ul>
+                <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
+            </div>
+
+            <!-- GRINDER -->
+            <div class="sponsor-card">
+                <h3>GRINDER</h3>
+                <div class="price-tag">$100</div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> 1"x 3" logo/ad in game program</li>
+                    <li><i class="fas fa-check-circle"></i> Recognition at game intermission</li>
+                </ul>
+                <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
+            </div>
         </div>
 
         <div class="payment-methods">
@@ -475,4 +555,4 @@
 </script>
     
 </body>
-</html>
+</html>```
