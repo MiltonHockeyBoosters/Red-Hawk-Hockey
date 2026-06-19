@@ -163,12 +163,15 @@
         .data-table tbody tr:nth-child(even) { background: #f9f9f9; }
         .close-btn { margin-top: 30px; background: #333; color: white; padding: 10px 20px; font-size: 0.8rem; cursor: pointer; border: none; text-transform: uppercase; display: block; margin-left: auto; margin-right: auto; }
 
-        /* MISSION SECTION - Updated to 2x2 */
+        /* Schedule Helper Style - Entire Row Red for Home Games */
+        .home-game-row td { color: var(--red); font-weight: bold; }
+
+        /* MISSION SECTION */
         .mission { padding: 80px 5%; max-width: 1000px; margin: 0 auto; }
         .mission-grid { 
             display: grid; 
-            grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns */
-            gap: 60px 40px; /* Space between rows and columns */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 60px 40px; 
         }
         .mission-item { text-align: center; }
         .mission-item i { font-size: 3.5rem; color: var(--red); margin-bottom: 20px; }
@@ -184,7 +187,6 @@
         .sponsor-card h3 { font-size: 2rem; margin: 0; color: var(--black); }
         .price-tag { font-size: 3rem; font-weight: bold; color: var(--red); margin: 15px 0; }
         
-        /* Styled benefits list for cards */
         .benefits-list { list-style: none; padding: 0; text-align: left; font-family: 'Roboto Condensed', sans-serif; font-size: 0.95rem; margin: 20px 0; border-top: 1px solid #eee; padding-top: 15px; }
         .benefits-list li { margin-bottom: 8px; line-height: 1.2; }
         .benefits-list i { color: var(--red); margin-right: 8px; }
@@ -223,7 +225,7 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
-            .mission-grid { grid-template-columns: 1fr; } /* Stack on mobile */
+            .mission-grid { grid-template-columns: 1fr; } 
             .payment-methods { grid-template-columns: 1fr; }
             nav { flex-direction: column; gap: 15px; padding: 20px; }
             nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
@@ -244,7 +246,7 @@
     </nav>
 
     <div class="ticker">
-        Next Game: Milton vs. Janesville — Tuesday @ 7:00 PM — Woodman's Center
+        Next Game: Milton vs. Beloit (Scrimmage) — Thursday, Nov 19 @ Woodman's Center
     </div>
 
     <section class="hero">
@@ -253,7 +255,7 @@
         <a href="#membership" class="btn">Support The Hawks</a>
     </section>
 
-    <!-- HIDDEN SCHEDULE SECTION -->
+    <!-- SCHEDULE SECTION -->
     <section id="schedule">
         <h2 class="section-title">2024-25 <span>Schedule</span></h2>
         <div class="data-container">
@@ -267,53 +269,57 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Jan 21</td><td style="font-weight:bold;">Janesville Bluebirds</td><td>Woodman's Center (Home)</td><td>7:00 PM</td></tr>
+                    <tr class="home-game-row"><td>Nov 19</td><td>Beloit (Scrimmage)</td><td>Woodman's Center (Home)</td><td>TBD</td></tr>
+                    <tr><td>Nov 27-28</td><td>Tournament</td><td>Cedarburg</td><td>TBD</td></tr>
+                    <tr><td>Dec 1</td><td>Baraboo</td><td>Baraboo</td><td>TBD</td></tr>
+                    <tr class="home-game-row"><td>Dec 3</td><td>WNS Storm</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr><td>Dec 4</td><td>McFarland</td><td>McFarland</td><td>TBD</td></tr>
+                    <tr class="home-game-row"><td>Dec 8</td><td>South Central</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr><td>Dec 11</td><td>Monona Grove</td><td>Monona Grove</td><td>TBD</td></tr>
+                    <tr><td>Dec 15</td><td>Beloit</td><td>Beloit</td><td>TBD</td></tr>
+                    <tr><td>Dec 17</td><td>Monroe</td><td>Monroe</td><td>TBD</td></tr>
+                    <tr><td>Dec 22</td><td>Battle of the Birds</td><td>Janesville</td><td>TBD</td></tr>
+                    <tr><td>Dec 28-30</td><td>Culver's Cup Tournament</td><td>Madison</td><td>TBD</td></tr>
+                    <tr class="home-game-row"><td>Jan 5</td><td>RWD</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr><td>Jan 8</td><td>Stoughton</td><td>Stoughton</td><td>TBD</td></tr>
+                    <tr><td>Jan 12</td><td>Madison West</td><td>Madison West</td><td>TBD</td></tr>
+                    <tr class="home-game-row"><td>Jan 14</td><td>Oregon</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr><td>Jan 19</td><td>Sauk Prairie</td><td>Sauk Prairie</td><td>TBD</td></tr>
+                    <tr class="home-game-row"><td>Jan 21</td><td>Edgewood</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr class="home-game-row"><td>Jan 26</td><td>Waupun</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr><td>Jan 30</td><td>Oshkosh</td><td>Oshkosh</td><td>3:30 PM Varsity / 5:30 PM JV</td></tr>
+                    <tr class="home-game-row"><td>Feb 4</td><td>Waunakee</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr class="home-game-row"><td>Feb 9</td><td>Beaver Dam</td><td>Woodman's Center (Home)</td><td>5:00 PM JV / 7:00 PM Varsity</td></tr>
+                    <tr class="home-game-row"><td>Feb 13</td><td>Waupaca</td><td>Woodman's Center (Home)</td><td>1:00 PM JV / 3:00 PM Varsity</td></tr>
                 </tbody>
             </table>
             <button class="close-btn" onclick="toggleSection('schedule')">× Close Schedule</button>
         </div>
     </section>
 
-    <!-- HIDDEN ROSTER SECTION -->
+    <!-- ROSTER SECTION -->
     <section id="roster">
         <h2 class="section-title">2024-25 <span>Team Rosters</span></h2>
-        
         <div class="data-container">
-            <!-- VARSITY -->
             <h3 class="sub-heading">Varsity</h3>
             <table class="data-table">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Year</th>
-                        <th>School</th>
-                    </tr>
+                    <tr><th>#</th><th>Name</th><th>Position</th><th>Year</th><th>School</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>1</td><td style="font-weight:bold;">Henrik Schaapveld</td><td>Goalie</td><td>Junior</td><td>MIL</td></tr>
-                    
                     <tr><td>32</td><td style="font-weight:bold;">Porter Maliszewski</td><td>Goalie</td><td>Senior</td><td>MIL</td></tr>
                 </tbody>
             </table>
-
-            <!-- JV -->
             <h3 class="sub-heading">Junior Varsity</h3>
             <table class="data-table">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Year</th>
-                    </tr>
+                    <tr><th>#</th><th>Name</th><th>Position</th><th>Year</th></tr>
                 </thead>
                 <tbody>
                     <tr><td>--</td><td style="font-weight:bold;">TBD</td><td>TBD</td><td>Freshman</td></tr>
                 </tbody>
             </table>
-
             <button class="close-btn" onclick="toggleSection('roster')">× Close Roster</button>
         </div>
     </section>
@@ -371,7 +377,6 @@
     <section class="membership" id="membership">
         <h2 class="section-title">2026-27 <span>Support Tiers</span></h2>
         <div class="sponsor-grid">
-            <!-- HALL OF FAME -->
             <div class="sponsor-card featured">
                 <h3>HALL OF FAME</h3>
                 <div class="price-tag">$5,000</div>
@@ -385,8 +390,6 @@
                 </ul>
                 <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
             </div>
-            
-            <!-- PLAYMAKER -->
             <div class="sponsor-card" style="border-top: 8px solid var(--red);">
                 <h3>PLAYMAKER</h3>
                 <div class="price-tag">$2,500</div>
@@ -400,8 +403,6 @@
                 </ul>
                 <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
             </div>
-
-            <!-- POWER PLAY -->
             <div class="sponsor-card" style="border-top: 8px solid var(--black);">
                 <h3>POWER PLAY</h3>
                 <div class="price-tag">$1,000</div>
@@ -415,8 +416,6 @@
                 </ul>
                 <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
             </div>
-
-            <!-- SHUT OUT -->
             <div class="sponsor-card">
                 <h3>SHUT OUT</h3>
                 <div class="price-tag">$500</div>
@@ -429,8 +428,6 @@
                 </ul>
                 <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
             </div>
-
-            <!-- HAT TRICK -->
             <div class="sponsor-card">
                 <h3>HAT TRICK</h3>
                 <div class="price-tag">$300</div>
@@ -441,8 +438,6 @@
                 </ul>
                 <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
             </div>
-
-            <!-- GRINDER -->
             <div class="sponsor-card">
                 <h3>GRINDER</h3>
                 <div class="price-tag">$100</div>
@@ -453,7 +448,6 @@
                 <a href="https://venmo.com/miltonhockey" target="_blank" class="btn">Support Now</a>
             </div>
         </div>
-
         <div class="payment-methods">
             <div class="payment-box">
                 <h3 class="venmo-style"><i class="fab fa-vimeo-v"></i> Venmo</h3>
@@ -505,14 +499,11 @@
     <footer>
         <img src="logo.png" alt="Milton" style="height: 80px; opacity: 0.6; margin-bottom: 25px;"><br>
         <strong style="color: white; font-size: 1.2rem;">MILTON RED HAWKS BOYS HOCKEY</strong><br>
-        
-        <!-- Contact Email Link -->
         <div class="footer-email">
             <a href="mailto:miltonhockey.wi@gmail.com?subject=Inquiry%20from%20Website">
                 <i class="fas fa-envelope" style="color: var(--red);"></i> Contact Us: miltonhockey.wi@gmail.com
             </a>
         </div>
-
         <div class="footer-social-links" style="margin-top:20px;">
             <a href="https://facebook.com/MiltonHSHockey" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/miltonredhawksboyshockey/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -521,11 +512,9 @@
     </footer>
 
 <script>
-    // Animate PROTECT THE NEST
     const title = document.getElementById('animated-title');
     const text = 'PROTECT THE NEST';
     const words = text.split(' ');
-
     words.forEach((word, wordIndex) => {
         const wordSpan = document.createElement('span');
         wordSpan.style.whiteSpace = 'nowrap';
@@ -555,6 +544,5 @@
         }
     }
 </script>
-    
 </body>
 </html>
