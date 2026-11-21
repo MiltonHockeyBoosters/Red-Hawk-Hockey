@@ -247,8 +247,8 @@
         </ul>
     </nav>
 
-    <div class="ticker">
-        Next Game: Milton vs. Beloit (Scrimmage) — Thursday, Nov 19 @ Woodman's Center
+    <div class="ticker" id="next-game-ticker" aria-live="polite">
+        Loading next game…
     </div>
 
     <section class="hero">
@@ -594,6 +594,55 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
+function updateNextGameTicker() {
+    const ticker = document.getElementById('next-game-ticker');
+    const scheduleTitle = document.querySelector('#schedule .section-title')?.textContent || '';
+    const seasonStartYear = Number(scheduleTitle.match(/\b(\d{4})\s*-/)?.[1]);
+
+    if (!ticker || !seasonStartYear) return;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const nextGame = [...document.querySelectorAll('#schedule tbody tr')].find((row) => {
+        const dateText = row.cells[0]?.textContent.trim() || '';
+        const match = dateText.match(/^([A-Za-z]{3})\s+(\d{1,2})$/);
+        if (!match) return false;
+
+        const month = new Date(`${match[1]} 1, 2000`).getMonth();
+        const day = Number(match[2]);
+        const year = month < 6 ? seasonStartYear + 1 : seasonStartYear;
+        const gameDate = new Date(year, month, day);
+
+        return gameDate >= today;
+    });
+
+    if (!nextGame) {
+        ticker.textContent = 'The season schedule is complete.';
+        return;
+    }
+
+    const dateText = nextGame.cells[0].textContent.trim();
+    const [monthText, dayText] = dateText.split(/\s+/);
+    const month = new Date(`${monthText} 1, 2000`).getMonth();
+    const year = month < 6 ? seasonStartYear + 1 : seasonStartYear;
+    const gameDate = new Date(year, month, Number(dayText));
+    const dateLabel = new Intl.DateTimeFormat('en-US', {
+        weekday: 'long',
+        month: 'short',
+        day: 'numeric'
+    }).format(gameDate);
+
+    const opponent = nextGame.cells[1].textContent.trim();
+    const location = nextGame.cells[2].textContent
+        .replace(/\(Home\)/i, '')
+        .trim();
+
+    ticker.textContent = `Next Game: Milton vs. ${opponent} — ${dateLabel} @ ${location}`;
+}
+
+updateNextGameTicker();
+setInterval(updateNextGameTicker, 60 * 1000);
 </script>
 </body>
 </html>
